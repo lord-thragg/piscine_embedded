@@ -15,9 +15,14 @@
 
 int	main(void) {
 	DDRB |= (1 << PB0);
-	PORTB |= (1 << PB0);
-	_delay_ms(5000);
-	PORTB &= ~(1 << PB0);
+	DDRD &= ~(1 << PD2);
+
+	while (1) {
+		if ( !(PIND & ( 1 << PD2 )) ) {
+			PORTB |= (1 << PB0);
+			PORTB &= ~(1 << PB0);
+		}
+	}
 
 	return (0);
 }
