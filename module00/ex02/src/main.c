@@ -6,7 +6,7 @@
 /*   By: luluzuri <luluzuri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 18:06:41 by luluzuri          #+#    #+#             */
-/*   Updated: 2025/10/31 13:03:16 by luluzuri         ###   ########.fr       */
+/*   Updated: 2025/10/31 13:03:25 by luluzuri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,5 @@ int	main(void) {
 			PORTB ^= (1 << PB0);
 		last_state = current_state;
 	}
-//piscine
 	return (0);
 }
