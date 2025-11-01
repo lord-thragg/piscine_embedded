@@ -7,12 +7,14 @@ NAME        = main
 SRCDIR      = src
 OBJDIR      = obj
 INCDIR      = include
+BINDIR      = bin
+HEXDIR      = hex
 
 SRC         = main.c
 OBJ         = $(addprefix $(OBJDIR)/,$(SRC:.c=.o))
 
-BIN         = $(NAME).bin
-HEX         = $(NAME).hex
+BIN         = $(BINDIR)/$(NAME).bin
+HEX         = $(HEXDIR)/$(NAME).hex
 
 
 # ╔═══════════════════════════════════════════════════════════════════╗
@@ -62,10 +64,10 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.c | $(OBJDIR)
 	$(V)mkdir -p $(dir $@)
 	$(V)$(CC) $(CFLAGS) -MMD -MP -c $< -o $@
 
-$(BIN): $(OBJ)
+$(BIN): $(OBJ) | $(BINDIR)
 	$(V)$(CC) $(CFLAGS) -o $(BIN) $(OBJ)
 
-$(HEX): $(BIN)
+$(HEX): $(BIN) | $(HEXDIR)
 	$(V)$(OBJCOPY) -O ihex $(BIN) $(HEX)
 
 flash: $(HEX)
@@ -74,15 +76,22 @@ flash: $(HEX)
 $(OBJDIR):
 	$(V)mkdir -p $(OBJDIR)
 
+$(BINDIR):
+	$(V)mkdir -p $(BINDIR)
+
+$(HEXDIR):
+	$(V)mkdir -p $(HEXDIR)
+
 
 # ╔═══════════════════════════════════════════════════════════════════╗
 # ║ 🧹 Maintenance 						                              ║
 # ╚═══════════════════════════════════════════════════════════════════╝
 
 clean:
-	$(V)rm -rf $(OBJDIR)
+	$(V)rm -rf $(BINDIR) $(HEXDIR)
 
 fclean: clean
+	$(V)rm -rf $(OBJDIR)
 	$(V)rm -f $(BIN) $(HEX)
 
 re: fclean all
