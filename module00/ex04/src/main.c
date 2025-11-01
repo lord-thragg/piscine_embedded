@@ -6,7 +6,7 @@
 /*   By: luluzuri <luluzuri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 14:31:17 by luluzuri          #+#    #+#             */
-/*   Updated: 2025/11/01 16:42:30 by luluzuri         ###   ########.fr       */
+/*   Updated: 2025/11/01 17:04:57 by luluzuri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,14 @@ int main( void ) {
 	DDRB |= (1 << PB4);
 	
 	// Value utiliser pour incrementer / decrementer
-	uint8_t value = 0;
+	uint8_t value = 0b0000;
 
 	// Lecture des boutons ( via PINx )
-	while (1) {
-		
-	}
+	
+
+	// try to put all the needed LED in light
+	PORTB |= (1 << PB0);
+	PORTB |= (1 << PB1);
+	PORTB |= (1 << PB2);
+	PORTB |= (1 << PB4);
 }
