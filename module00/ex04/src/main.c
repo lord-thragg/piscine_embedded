@@ -6,7 +6,7 @@
 /*   By: luluzuri <luluzuri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 14:31:17 by luluzuri          #+#    #+#             */
-/*   Updated: 2025/11/01 16:18:28 by luluzuri         ###   ########.fr       */
+/*   Updated: 2025/11/01 16:42:30 by luluzuri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,7 @@ int main( void ) {
 	uint8_t value = 0;
 
 	// Lecture des boutons ( via PINx )
-	
+	while (1) {
+		
+	}
 }
