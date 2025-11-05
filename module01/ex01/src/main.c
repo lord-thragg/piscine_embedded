@@ -6,29 +6,23 @@
 /*   By: luluzuri <luluzuri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 18:06:41 by luluzuri          #+#    #+#             */
-/*   Updated: 2025/11/05 16:53:30 by luluzuri         ###   ########.fr       */
+/*   Updated: 2025/11/05 17:07:51 by luluzuri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <avr/io.h>
 
-/* ANCHOR Clignotant
- *	only one bitwise operation means you need to reverse the octet
+/* ANCHOR Time1
+ *	No PORTx register should be used so for that we need use Timer1 register
+ *	do to the same as the first exercice
 
- *	volatile for the long is usefull to cancel optimisation of the compilateur
- *	that it normally do
-
- *	The XOR operation ( ^= ) is usefull to change the state of a bit with one operation
+ * 
 */
 
 int main( void ) {
-	DDRB |= (1 << PB1);
+	DDRB |= (1 << PB1); // Permet de mettre la led en sortie
 
 	while ( 1 ) {
-		PORTB ^= (1 << PB1);
 
-		for( volatile long i = 0; i < 160000; i++) { }
 	}
-
-	return (0);
 }
