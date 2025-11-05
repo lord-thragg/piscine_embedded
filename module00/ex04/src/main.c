@@ -6,7 +6,7 @@
 /*   By: luluzuri <luluzuri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 14:31:17 by luluzuri          #+#    #+#             */
-/*   Updated: 2025/11/02 12:26:12 by luluzuri         ###   ########.fr       */
+/*   Updated: 2025/11/05 16:31:11 by luluzuri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int main( void ) {
 	
 	// Define the input button
 	DDRD &= ~(1 << PD2);
-	DDRD &= ~(1 << PD3);
+	DDRD &= ~(1 << PD4);
 	uint8_t lstate_1 = 1;
 	uint8_t lstate_2 = 1;
 	
@@ -38,12 +38,12 @@ int main( void ) {
 		_delay_ms(50);
 		
 		uint8_t cstate_1 = PIND & (1 << PD2);
-		uint8_t cstate_2 = PIND & (1 << PD3);
+		uint8_t cstate_2 = PIND & (1 << PD4);
 
 		// Need to add the incrementation / decrementation when button pressed
 		if ( !cstate_1 && lstate_1 )
 			count++;
-		if ( !cstate_2 & lstate_2 )
+		if ( !cstate_2 && lstate_2 )
 			count--;
 
 		if ( count & mask0 )
