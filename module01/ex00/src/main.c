@@ -6,7 +6,7 @@
 /*   By: luluzuri <luluzuri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 18:06:41 by luluzuri          #+#    #+#             */
-/*   Updated: 2025/11/05 16:53:30 by luluzuri         ###   ########.fr       */
+/*   Updated: 2025/11/06 11:25:29 by luluzuri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int main( void ) {
 	while ( 1 ) {
 		PORTB ^= (1 << PB1);
 
-		for( volatile long i = 0; i < 160000; i++) { }
+		for( volatile long i = 0; i < 160000; i++ ) { }
 	}
 
 	return (0);
